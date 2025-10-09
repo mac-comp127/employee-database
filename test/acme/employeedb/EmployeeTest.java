@@ -9,8 +9,8 @@ public class EmployeeTest {
     void testLabTechAccess() {
         Employee labTech = new LabTech("Sally", 1);
         assertTrue(labTech.hasAccess(new Room(100, RoomType.LAB)));
+        assertTrue(labTech.hasAccess(new Room(100, RoomType.SUPPLY_CLOSET)));
         assertFalse(labTech.hasAccess(new Room(100, RoomType.OFFICE)));
-        assertFalse(labTech.hasAccess(new Room(100, RoomType.SUPPLY_CLOSET)));
     }
 
     @Test

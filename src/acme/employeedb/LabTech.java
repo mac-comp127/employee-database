@@ -7,7 +7,8 @@ public class LabTech extends Employee {
 
     @Override
     public boolean hasAccess(Room room) {
-        return room.getType() == RoomType.LAB;
+        return room.getType() == RoomType.LAB
+            || room.getType() == RoomType.SUPPLY_CLOSET;
     }
  
     @Override
