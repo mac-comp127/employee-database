@@ -1,3 +1,4 @@
+package acme.employeedb;
 
 /**
  * A specific room in the ACME Corporation.

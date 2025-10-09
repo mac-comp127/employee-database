@@ -1,3 +1,5 @@
+package acme.employeedb;
+
 public class MiddleManager extends Employee {
     private int accessFloor;
 

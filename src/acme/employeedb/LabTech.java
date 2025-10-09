@@ -1,3 +1,5 @@
+package acme.employeedb;
+
 public class LabTech extends Employee {
     public LabTech(String name, int id) {
         super(name, id);

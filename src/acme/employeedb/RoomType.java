@@ -1,3 +1,4 @@
+package acme.employeedb;
 
 /**
  * A categorization system for rooms in the ACME Corporation building.
