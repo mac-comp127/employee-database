@@ -28,27 +28,14 @@ public abstract class Employee {
     public int getID() {
         return this.id;
     }
+
+    /**
+     * Returns true if this employee has authorization to unlock the given room.
+     */
+    public abstract boolean hasAccess(Room room);
     
     /**
-     * Abstract method signature which will allow sublcasses to describe the employee's role
+     * Provides a string with the employee's data, role, and access permissions.
      */
     public abstract String description();
-
-    /**
-     * Whether an employee has permission to access the laboratory facilities.
-     * 
-     * @return true
-     */
-    public boolean labPermission() {
-        return true;
-    }
-
-    /**
-     * Whether an employee has permission to access the laboratory supply closet.
-     * 
-     * @return true
-     */
-    public boolean supplyClosetPermission() {
-        return true;
-    }
 }

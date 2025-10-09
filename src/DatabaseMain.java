@@ -16,7 +16,8 @@ public class DatabaseMain {
     }
 
     /**
-     * Static helper method to add a new member to the employees list
+     * Interactively reads information about a new member, creates a new employee, and adds them to
+     * the given list.
      * 
      * @param sc Scanner for user input
      * @param members Employees list
@@ -35,7 +36,10 @@ public class DatabaseMain {
             members.add(new LabTech(name, id));
 
         } else if (type == 2) {
-            members.add(new MiddleManager(name, id));
+            System.out.println("Manager's home floor:");
+            System.out.print("> ");
+            int homeFloor = sc.nextInt();
+            members.add(new MiddleManager(name, id, homeFloor));
 
         } else {
             System.out.println("Not a valid entry. Exiting to main menu.");
@@ -63,7 +67,6 @@ public class DatabaseMain {
         }
 
         System.out.println("Could not find an employee with ID #" + id);
-
     }
 
     public static void main(String[] args) {
@@ -84,6 +87,7 @@ public class DatabaseMain {
                 printHelp();
 
             } else if(input.equalsIgnoreCase("list")) { // listing members
+                System.out.println(members.size() + " member(s)");
                 for(Employee f : members) {
                     System.out.println(f.description());
                     System.out.println();
@@ -100,10 +104,6 @@ public class DatabaseMain {
                 System.out.println("Entered: " + input);
                 System.out.println("Please enter a valid command");
             }
-
         }
-        
-
-    }
-    
+    }    
 }

@@ -1,24 +1,20 @@
 public class MiddleManager extends Employee {
+    private int accessFloor;
 
-    public MiddleManager(String name, int id) {
+    public MiddleManager(String name, int id, int homeFloor) {
         super(name, id);
+        this.accessFloor = homeFloor;
+    }
+
+    @Override
+    public boolean hasAccess(Room room) {
+        return room.getType() == RoomType.OFFICE
+            && room.getFloor() == accessFloor;
     }
 
     @Override
     public String description() {
         return "< ID: " + this.getID() + "; Name: " + this.getName() + "; Middle Manager >\n" 
-        + "\tLab Access: " + this.labPermission() + "\n"
-        + "\tSupply Closet Access: " + this.supplyClosetPermission();
-    }
-
-    @Override
-    public boolean labPermission() { // Middle managers have not received lab safety training
-        return false;
-    }
-
-    @Override
-    public boolean supplyClosetPermission() { // Middle managers have not received safe materials handling training
-        return false;
-    }
-    
+        + "\tAccess: offices on floor " + this.accessFloor;
+    }    
 }
