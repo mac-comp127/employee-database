@@ -1,8 +1,12 @@
 package acme.employeedb;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Employee {
     private String name;
     private int id;
+    private List<Permission> permissions = new ArrayList<>();
 
     /**
      * Constructor method for ceating an Emloyee object.
@@ -31,6 +35,10 @@ public abstract class Employee {
         return id;
     }
 
+    public void addPermission(Permission permission) {
+        permissions.add(permission);
+    }
+
     /**
      * Returns a description of what type of employee this is.
      */
@@ -39,10 +47,24 @@ public abstract class Employee {
     /**
      * Returns true if this employee has authorization to unlock the given room.
      */
-    public abstract boolean hasAccess(Room room);
+    public final boolean hasAccess(Room room) {
+        for (Permission permission : permissions) {
+            if (permission.allowsAccess(room)) {
+                return true;
+            }
+        }
+        return false;
+    }
     
     /**
      * Provides a string with the employee's data, role, and access permissions.
      */
-    public abstract String description();
+    public final String description() {
+        String result = "< ID: " + getID() + "; Name: " + getName() + "; " + getRoleDescription() + " >";
+        for (Permission permission : permissions) {
+            result += "\n\t";
+            result += permission.description();
+        }
+        return result;
+    }    
 }
