@@ -13,7 +13,8 @@ public class LabTech extends Employee {
  
     @Override
     public String description() {
-        return "< ID: " + this.getID() + "; Name: " + this.getName() + "; Lab Technician >\n" 
-        + "\tAccess: all labs";
+        return "< ID: " + this.getID() + "; Name: " + this.getName() + "; Lab Technician >" 
+            + "\n\tAccess to all labs"
+            + "\n\tAccess to all supply closets";
     }
 }

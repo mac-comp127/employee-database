@@ -16,7 +16,7 @@ public class MiddleManager extends Employee {
 
     @Override
     public String description() {
-        return "< ID: " + this.getID() + "; Name: " + this.getName() + "; Middle Manager >\n" 
-        + "\tAccess: offices on floor " + this.accessFloor;
+        return "< ID: " + this.getID() + "; Name: " + this.getName() + "; Middle Manager >" 
+            + "\n\tAccess to offices on floor " + this.accessFloor;
     }    
 }
