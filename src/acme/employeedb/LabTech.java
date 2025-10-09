@@ -6,6 +6,11 @@ public class LabTech extends Employee {
     }
 
     @Override
+    public String getRoleDescription() {
+        return "Lab Technician";
+    }
+
+    @Override
     public boolean hasAccess(Room room) {
         return room.getType() == RoomType.LAB
             || room.getType() == RoomType.SUPPLY_CLOSET;
@@ -13,7 +18,7 @@ public class LabTech extends Employee {
  
     @Override
     public String description() {
-        return "< ID: " + this.getID() + "; Name: " + this.getName() + "; Lab Technician >" 
+        return "< ID: " + getID() + "; Name: " + getName() + "; " + getRoleDescription() + " >" 
             + "\n\tAccess to all labs"
             + "\n\tAccess to all supply closets";
     }

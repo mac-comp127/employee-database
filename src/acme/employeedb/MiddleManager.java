@@ -9,6 +9,11 @@ public class MiddleManager extends Employee {
     }
 
     @Override
+    public String getRoleDescription() {
+        return "Middle Manager";
+    }
+
+    @Override
     public boolean hasAccess(Room room) {
         return room.getType() == RoomType.OFFICE
             && room.getFloor() == accessFloor;
@@ -16,7 +21,7 @@ public class MiddleManager extends Employee {
 
     @Override
     public String description() {
-        return "< ID: " + this.getID() + "; Name: " + this.getName() + "; Middle Manager >" 
-            + "\n\tAccess to offices on floor " + this.accessFloor;
+        return "< ID: " + getID() + "; Name: " + getName() + "; " + getRoleDescription() + " >" 
+            + "\n\tAccess to offices on floor " + accessFloor;
     }    
 }
