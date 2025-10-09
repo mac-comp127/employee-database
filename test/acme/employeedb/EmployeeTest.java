@@ -24,20 +24,20 @@ public class EmployeeTest {
 
     @Test
     void testMiddleManagerAccess() {
-        Employee labTech = new MiddleManager("Ling", 1, 3);
-        assertTrue(labTech.hasAccess(new Room(300, RoomType.OFFICE)));
-        assertTrue(labTech.hasAccess(new Room(399, RoomType.OFFICE)));
-        assertFalse(labTech.hasAccess(new Room(400, RoomType.OFFICE)));
-        assertFalse(labTech.hasAccess(new Room(300, RoomType.LAB)));
-        assertFalse(labTech.hasAccess(new Room(300, RoomType.SUPPLY_CLOSET)));
+        Employee manager = new MiddleManager("Ling", 1, 3);
+        assertTrue(manager.hasAccess(new Room(300, RoomType.OFFICE)));
+        assertTrue(manager.hasAccess(new Room(399, RoomType.OFFICE)));
+        assertFalse(manager.hasAccess(new Room(400, RoomType.OFFICE)));
+        assertFalse(manager.hasAccess(new Room(300, RoomType.LAB)));
+        assertFalse(manager.hasAccess(new Room(300, RoomType.SUPPLY_CLOSET)));
     }
     
     @Test
     void testMiddleManagerDescription() {
-        Employee labTech = new MiddleManager("Ling", 456, 10);
+        Employee manager = new MiddleManager("Ling", 456, 10);
         assertEquals(
             "< ID: 456; Name: Ling; Middle Manager >"
                 + "\n\tAccess to offices on floor 10",
-            labTech.description());
+            manager.description());
     }
 }
